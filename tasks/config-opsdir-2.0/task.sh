@@ -486,13 +486,14 @@ fi
 
 if [ "$DIRECTOR_SYSLOG_ENABLED" == "true" ]; then
   echo "applying syslog config"
+
   om-linux \
     --target https://$OPSMAN_DOMAIN_OR_IP_ADDRESS \
     --skip-ssl-validation \
     --username $OPSMAN_USERNAME \
     --password $OPSMAN_PASSWORD \
-    -k curl -p "/api/v0/staged/director/syslog" \
-    -x PUT -d "$syslog_configuration" \
+    configure-bosh \
+    ----syslog-configuration "$syslog_configuration" \
     2>/dev/null
   # Check for errors
   if [ $? != 0 ]; then
