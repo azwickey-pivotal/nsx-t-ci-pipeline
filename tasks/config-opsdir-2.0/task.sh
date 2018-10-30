@@ -492,7 +492,7 @@ if [ "$DIRECTOR_SYSLOG_ENABLED" == "true" ]; then
     --skip-ssl-validation \
     --username $OPSMAN_USERNAME \
     --password $OPSMAN_PASSWORD \
-    -k curl -p "/api/v0/staged/director/syslog_configuration" \
+    -k curl -p "/api/v0/staged/director/properties" \
     -x PUT -d "$syslog_configuration"
 
   # Check for errors
