@@ -492,9 +492,9 @@ if [ "$DIRECTOR_SYSLOG_ENABLED" == "true" ]; then
     --skip-ssl-validation \
     --username $OPSMAN_USERNAME \
     --password $OPSMAN_PASSWORD \
-    configure-bosh \
+    configure-director \
     --syslog-configuration "$syslog_configuration"
-    
+
   # Check for errors
   if [ $? != 0 ]; then
     echo "Sylog configuration failed!!"
