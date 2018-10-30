@@ -41,6 +41,7 @@ iaas_configuration=$(
 )
 
 if [ "$DIRECTOR_SYSLOG_ENABLED" == "true" ]; then
+  echo "prepping syslog config"
   syslog_configuration=$(
     jq -n \
     --arg syslog_host "$DIRECTOR_SYSLOG_HOST" \
@@ -484,6 +485,7 @@ if [ $? != 0 ]; then
 fi
 
 if [ "$DIRECTOR_SYSLOG_ENABLED" == "true" ]; then
+  echo "applying syslog config"
   om-linux \
     --target https://$OPSMAN_DOMAIN_OR_IP_ADDRESS \
     --skip-ssl-validation \
