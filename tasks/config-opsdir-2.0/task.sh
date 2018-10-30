@@ -47,7 +47,7 @@ if [ "$DIRECTOR_SYSLOG_ENABLED" == "true" ]; then
     --arg syslog_port "$DIRECTOR_SYSLOG_PORT" \
     '
     {
-      "enabled": "true"
+      "enabled": "true",
       "address": $syslog_host,
       "port": $syslog_port
     }'
