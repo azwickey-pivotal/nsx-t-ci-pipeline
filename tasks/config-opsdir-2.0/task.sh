@@ -493,7 +493,8 @@ if [ "$DIRECTOR_SYSLOG_ENABLED" == "true" ]; then
     --username $OPSMAN_USERNAME \
     --password $OPSMAN_PASSWORD \
     -k curl -p "/api/v0/staged/director/properties" \
-    -x PUT -d "$syslog_configuration"
+    -x PUT -d "$syslog_configuration" \
+     2>/dev/null
 
   # Check for errors
   if [ $? != 0 ]; then
