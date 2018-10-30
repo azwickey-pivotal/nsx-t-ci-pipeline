@@ -486,6 +486,7 @@ fi
 
 if [ "$DIRECTOR_SYSLOG_ENABLED" == "true" ]; then
   echo "applying syslog config"
+  echo "syslog config: $syslog_configuration"
 
   om-linux \
     --target https://$OPSMAN_DOMAIN_OR_IP_ADDRESS \
