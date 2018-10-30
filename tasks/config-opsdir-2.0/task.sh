@@ -493,7 +493,7 @@ if [ "$DIRECTOR_SYSLOG_ENABLED" == "true" ]; then
     --username $OPSMAN_USERNAME \
     --password $OPSMAN_PASSWORD \
     configure-bosh \
-    ----syslog-configuration "$syslog_configuration" \
+    --syslog-configuration "$syslog_configuration" \
     2>/dev/null
   # Check for errors
   if [ $? != 0 ]; then
