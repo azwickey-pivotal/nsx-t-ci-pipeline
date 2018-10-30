@@ -90,6 +90,10 @@ pks_nw_gateway: 172.23.2.1          # PKS-Services network Gateway
 pks_nw_azs: az1,az2,az3                     # Comma separated list of AZ's to be associated with this network
 is_service_network: true  # Required select service network option in Ops man true or false
 
+director_syslog_enabled: true
+director_syslog_host: adam.zwickey  # EDIT set to syslog host
+director_syslog_port: 514 # EDIT set to syslog port
+
 ## PKS Tile section ##
 ######################
 
