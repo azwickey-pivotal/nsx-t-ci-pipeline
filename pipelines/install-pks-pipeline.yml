@@ -45,6 +45,9 @@ ops_dir_config_params: &ops-dir-config-params
   NSX_ADDRESS: ((nsx_address))
   NSX_USERNAME: ((nsx_username))
   NSX_PASSWORD: ((nsx_password))
+  DIRECTOR_SYSLOG_ENABLED: ((director_syslog_enabled))
+  DIRECTOR_SYSLOG_HOST: ((director_syslog_host))
+  DIRECTOR_SYSLOG_PORT: ((director_syslog_port))
 
 pks_config_params: &pks-config-params
   IAAS: vsphere
