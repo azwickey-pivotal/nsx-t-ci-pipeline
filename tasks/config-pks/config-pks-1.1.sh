@@ -503,6 +503,7 @@ pks_main_properties=$(
     --arg pks_cli_user "$PKS_CLI_USER" \
     --arg pks_cli_password "$PKS_CLI_PASSWORD" \
     --arg pks_cli_email "$PKS_CLI_EMAIL" \
+    --arg pks_worker_max_in_flight "$PKS_WOKER_MAX_IN_FLIGHT" \
     --arg cert_pem "$PKS_SSL_CERT" \
     --arg private_key_pem "$PKS_SSL_PRIVATE_KEY" \
     --argjson plan_props "$plan_props" \
@@ -519,6 +520,9 @@ pks_main_properties=$(
       },
       ".properties.pks_api_hostname": {
           "value": $pks_uaa_domain
+      },
+      ".properties.worker_max_in_flight": {
+          "value": $pks_worker_max_in_flight
       },
       ".properties.uaa_pks_cli_access_token_lifetime": {
           "value": "86400"

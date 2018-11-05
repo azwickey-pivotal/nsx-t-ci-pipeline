@@ -82,6 +82,7 @@ params:
   PKS_WAVEFRONT_ALERT_TARGETS:
   PKS_TELEMETRY:
   PKS_DISABLE_NSX_T_PRECHECK_ERRAND:
+  PKS_WOKER_MAX_IN_FLIGHT:
 
 inputs:
   - name: nsx-t-ci-pipeline
