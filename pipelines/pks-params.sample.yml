@@ -107,6 +107,8 @@ pks_tile_uaa_domain_prefix: api # Would be used for UAA as ${prefix}.${pks_syste
 # External IP that would be routable via the NSX T0 Router and mapped to ${pks_tile_uaa_domain_prefix}.${pks_system_domain}
 pks_tile_uaa_system_domain_ip: EDIT_ME
 
+pks_tile_worker_max_in_flight: 5  #Number of workers to deploy in parallel
+
 pks_tile_cli_username: pksadmin
 pks_tile_cli_password: pksadmin123
 pks_tile_cli_useremail: pksadmin@corp.com
