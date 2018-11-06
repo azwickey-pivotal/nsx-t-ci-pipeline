@@ -446,8 +446,8 @@ if [ $? != 0 ]; then
   exit 1
 fi
 
-echo "AZ configuration..."
 if [ "$SETUP_AZ" == "true" ]; then
+  echo "AZ configuration..."
   om-linux \
     --target https://$OPSMAN_DOMAIN_OR_IP_ADDRESS \
     --skip-ssl-validation \
@@ -461,38 +461,39 @@ if [ "$SETUP_AZ" == "true" ]; then
     echo "Availability Zones configuration failed!!"
     exit 1
   fi
-fi
 
-echo "Network configuration..."
-om-linux \
-  --target https://$OPSMAN_DOMAIN_OR_IP_ADDRESS \
-  --skip-ssl-validation \
-  --username $OPSMAN_USERNAME \
-  --password $OPSMAN_PASSWORD \
-  -k curl -p "/api/v0/staged/director/networks" \
-  -x PUT -d "$network_configuration" \
-  2>/dev/null
-# Check for errors
-if [ $? != 0 ]; then
-  echo "Networks configuration failed!!"
-  exit 1
-fi
 
-# Having trouble with om-cli with new network_assignment structure
-# that wraps single_az and network inside json structure instead of string
-echo "Network to AZ configuration..."
-om-linux \
-  --target https://$OPSMAN_DOMAIN_OR_IP_ADDRESS \
-  --skip-ssl-validation \
-  --username $OPSMAN_USERNAME \
-  --password $OPSMAN_PASSWORD \
-  -k curl -p "/api/v0/staged/director/network_and_az" \
-  -x PUT -d "$wrapped_network_az_assignment" \
-   2>/dev/null
-# Check for errors
-if [ $? != 0 ]; then
-  echo "Networks configuration and AZ assignment failed!!"
-  exit 1
+  echo "Network configuration..."
+  om-linux \
+    --target https://$OPSMAN_DOMAIN_OR_IP_ADDRESS \
+    --skip-ssl-validation \
+    --username $OPSMAN_USERNAME \
+    --password $OPSMAN_PASSWORD \
+    -k curl -p "/api/v0/staged/director/networks" \
+    -x PUT -d "$network_configuration" \
+    2>/dev/null
+  # Check for errors
+  if [ $? != 0 ]; then
+    echo "Networks configuration failed!!"
+    exit 1
+  fi
+
+  # Having trouble with om-cli with new network_assignment structure
+  # that wraps single_az and network inside json structure instead of string
+  echo "Network to AZ configuration..."
+  om-linux \
+    --target https://$OPSMAN_DOMAIN_OR_IP_ADDRESS \
+    --skip-ssl-validation \
+    --username $OPSMAN_USERNAME \
+    --password $OPSMAN_PASSWORD \
+    -k curl -p "/api/v0/staged/director/network_and_az" \
+    -x PUT -d "$wrapped_network_az_assignment" \
+     2>/dev/null
+  # Check for errors
+  if [ $? != 0 ]; then
+    echo "Networks configuration and AZ assignment failed!!"
+    exit 1
+  fi
 fi
 
 if [ "$DIRECTOR_SYSLOG_ENABLED" == "true" ]; then
