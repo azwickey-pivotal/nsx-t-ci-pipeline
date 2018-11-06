@@ -189,7 +189,7 @@ else
       '
   )
 fi
-
+echo $pks_uaa_properties
 om-linux \
 -t https://$OPSMAN_DOMAIN_OR_IP_ADDRESS \
 -u $OPSMAN_USERNAME \
