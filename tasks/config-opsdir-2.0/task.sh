@@ -400,6 +400,7 @@ EOF
 )
 
 # So split the configure steps into iaas that uses curl to PUT and normal path for director config
+echo "IaaS configuration..."
 om-linux \
   --target https://$OPSMAN_DOMAIN_OR_IP_ADDRESS \
   --skip-ssl-validation \
@@ -415,6 +416,7 @@ if [ $? != 0 ]; then
   exit 1
 fi
 
+echo "Director base configuration..."
 om-linux \
   --target https://$OPSMAN_DOMAIN_OR_IP_ADDRESS \
   --skip-ssl-validation \
@@ -429,6 +431,7 @@ if [ $? != 0 ]; then
   exit 1
 fi
 
+echo "Security configuration..."
 om-linux \
   --target https://$OPSMAN_DOMAIN_OR_IP_ADDRESS \
   --skip-ssl-validation \
@@ -443,6 +446,7 @@ if [ $? != 0 ]; then
   exit 1
 fi
 
+echo "AZ configuration..."
 om-linux \
   --target https://$OPSMAN_DOMAIN_OR_IP_ADDRESS \
   --skip-ssl-validation \
@@ -457,6 +461,7 @@ if [ $? != 0 ]; then
   exit 1
 fi
 
+echo "Network configuration..."
 om-linux \
   --target https://$OPSMAN_DOMAIN_OR_IP_ADDRESS \
   --skip-ssl-validation \
@@ -473,6 +478,7 @@ fi
 
 # Having trouble with om-cli with new network_assignment structure
 # that wraps single_az and network inside json structure instead of string
+echo "Network to AZ configuration..."
 om-linux \
   --target https://$OPSMAN_DOMAIN_OR_IP_ADDRESS \
   --skip-ssl-validation \
