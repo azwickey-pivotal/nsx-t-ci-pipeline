@@ -180,7 +180,7 @@ else
     --arg pks_tile_oidc "$PKS_OIDC" \
       '{
           ".properties.uaa_oidc": {
-            "value": "$pks_tile_oidc"
+            "value": $pks_tile_oidc
           },
           ".properties.uaa": {
             "value": "internal"
@@ -189,7 +189,6 @@ else
       '
   )
 fi
-echo $PKS_OIDC
 echo $pks_uaa_properties
 om-linux \
 -t https://$OPSMAN_DOMAIN_OR_IP_ADDRESS \
