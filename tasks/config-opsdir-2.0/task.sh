@@ -447,18 +447,20 @@ if [ $? != 0 ]; then
 fi
 
 echo "AZ configuration..."
-om-linux \
-  --target https://$OPSMAN_DOMAIN_OR_IP_ADDRESS \
-  --skip-ssl-validation \
-  --username $OPSMAN_USERNAME \
-  --password $OPSMAN_PASSWORD \
-  curl -p "/api/v0/staged/director/availability_zones" \
-  -x PUT -d "$az_configuration" \
-  2>/dev/null
-# Check for errors
-if [ $? != 0 ]; then
-  echo "Availability Zones configuration failed!!"
-  exit 1
+if [ "$SETUP_AZ" == "true" ]; then
+  om-linux \
+    --target https://$OPSMAN_DOMAIN_OR_IP_ADDRESS \
+    --skip-ssl-validation \
+    --username $OPSMAN_USERNAME \
+    --password $OPSMAN_PASSWORD \
+    curl -p "/api/v0/staged/director/availability_zones" \
+    -x PUT -d "$az_configuration" \
+    2>/dev/null
+  # Check for errors
+  if [ $? != 0 ]; then
+    echo "Availability Zones configuration failed!!"
+    exit 1
+  fi
 fi
 
 echo "Network configuration..."

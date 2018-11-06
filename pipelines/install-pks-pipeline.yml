@@ -27,6 +27,7 @@ ops_dir_config_params: &ops-dir-config-params
   PKS_NW_DNS: ((pks_nw_dns))
   PKS_NW_GATEWAY: ((pks_nw_gateway))
   PKS_NW_AZS: ((pks_nw_azs))
+  SETUP_AZ: ((setup_az))
   AZ_1: ((az_1_name))
   AZ_1_CLUSTER_NAME: ((az_1_cluster_name))
   AZ_1_RP_NAME: ((az_1_rp_name))
