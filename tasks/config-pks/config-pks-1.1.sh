@@ -21,7 +21,6 @@ if [ "$PKS_VRLI_ENABLED" == "true" ]; then
     --arg pks_vrli_use_ssl "$PKS_VRLI_USE_SSL" \
     --arg pks_vrli_skip_cert_verify "$PKS_VRLI_SKIP_CERT_VERIFY" \
     --arg pks_vrli_ca_cert "$PKS_VRLI_CA_CERT" \
-    --arg pks_vrli_rate_limit "$PKS_VRLI_RATE_LIMIT" \
       '{
           ".properties.pks-vrli": {
             "value": "enabled"
@@ -37,9 +36,6 @@ if [ "$PKS_VRLI_ENABLED" == "true" ]; then
           },
           ".properties.pks-vrli.enabled.ca_cert": {
             "value": $pks_vrli_ca_cert
-          },
-          ".properties.pks-vrli.enabled.rate_limit_msec": {
-            "value": $pks_vrli_rate_limit
           }
         }
       '
