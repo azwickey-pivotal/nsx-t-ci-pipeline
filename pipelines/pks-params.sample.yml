@@ -197,6 +197,7 @@ pks_tile_ldap_server_ssl_cert_alias:
 pks_tile_ldap_email_domains:
 pks_tile_ldap_first_name_attribute:
 pks_tile_ldap_last_name_attribute:
+pks_tile_oidc: false
 
 # PKS Wavefront integration
 pks_tile_wavefront_api_url: # wavefront api url, empty is disabled

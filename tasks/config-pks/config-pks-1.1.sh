@@ -111,6 +111,7 @@ fi
 if [ "$PKS_UAA_USE_LDAP" == "ldap" ]; then
   pks_uaa_properties=$(
     jq -n \
+    --arg pks_tile_oidc "$PKS_OIDC" \
     --arg pks_ldap_url "$PKS_LDAP_URL" \
     --arg pks_ldap_user "$PKS_LDAP_USER" \
     --arg pks_ldap_password "$PKS_LDAP_PASSWORD" \
@@ -122,6 +123,9 @@ if [ "$PKS_UAA_USE_LDAP" == "ldap" ]; then
     --arg pks_ldap_first_name_attribute "$PKS_LDAP_FIRST_NAME_ATTRIBUTE" \
     --arg pks_ldap_last_name_attribute "$PKS_LDAP_LAST_NAME_ATTRIBUTE" \
       '{
+          ".properties.uaa_oidc": {
+            "value": "$pks_tile_oidc"
+          },
           ".properties.uaa": {
             "value": "ldap"
           },
@@ -171,12 +175,18 @@ if [ "$PKS_UAA_USE_LDAP" == "ldap" ]; then
       '
   )
 else
-  pks_uaa_properties=$( echo \
-  '{
-    ".properties.uaa": {
-      "value": "internal"
-    }
-  }'
+  pks_uaa_properties=$(
+    jq -n \
+    --arg pks_tile_oidc "$PKS_OIDC" \
+      '{
+          ".properties.uaa_oidc": {
+            "value": "$pks_tile_oidc"
+          },
+          ".properties.uaa": {
+            "value": "internal"
+          }
+        }
+      '
   )
 fi
 
