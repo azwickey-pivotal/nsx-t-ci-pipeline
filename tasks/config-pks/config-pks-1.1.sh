@@ -124,7 +124,7 @@ if [ "$PKS_UAA_USE_LDAP" == "ldap" ]; then
     --arg pks_ldap_last_name_attribute "$PKS_LDAP_LAST_NAME_ATTRIBUTE" \
       '{
           ".properties.uaa_oidc": {
-            "value": "$pks_tile_oidc"
+            "value": $pks_tile_oidc
           },
           ".properties.uaa": {
             "value": "ldap"
