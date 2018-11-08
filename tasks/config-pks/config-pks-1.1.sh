@@ -141,7 +141,7 @@ if [ "$PKS_UAA_USE_LDAP" == "true" ]; then
             "value": "sAMAccountName={0}"
           },
           ".properties.uaa.ldap.group_search_base": {
-            "value": pks_ldap_group_search_base
+            "value": $pks_ldap_group_search_base
           },
           ".properties.uaa.ldap.group_search_filter": {
             "value": "member={0}"
