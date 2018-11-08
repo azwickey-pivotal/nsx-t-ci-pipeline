@@ -104,7 +104,7 @@ if [ "$PKS_ENABLE_HTTP_PROXY" == "true" ]; then
   echo "Finished configuring Proxy properties"
 fi
 
-if [ "$PKS_UAA_USE_LDAP" == "ldap" ]; then
+if [ "$PKS_UAA_USE_LDAP" == "true" ]; then
   pks_uaa_properties=$(
     jq -n \
     --arg pks_tile_oidc "$PKS_OIDC" \
